@@ -12,7 +12,7 @@ class BrefServiceProvider extends ServiceProvider
     {
         // Make sure the directory for compiled views exist
         $compiledViewDirectory = Config::get('view.compiled');
-        if (! is_dir($compiledViewDirectory)) {
+        if (!empty($compiledViewDirectory) && !is_dir($compiledViewDirectory)) {
             // The directory doesn't exist: let's create it, else Laravel will not create it automatically
             // and will fail with an error
             if (! mkdir($compiledViewDirectory, 0755, true) && ! is_dir($compiledViewDirectory)) {
